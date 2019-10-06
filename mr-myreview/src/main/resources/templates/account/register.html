@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastre-se - MyReview</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="container">
+<h3>Cadastrar</h3>
+	<form action="/registration" method="post" class="form-signin" th:object="${user}">
+		<div class="row">
+			<div class="form-group col-md-6">
+				<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
+					<label th:erros="*{email}" class="validation-message"></label>
+				</div>
+					<label>E-mail: </label>
+					<input type="text" class="form-control" th:field="*{email}">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group col-md-6">
+				<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('firstName')}">
+					<label th:erros="*{firstName}" class="validation-message"></label>
+				</div>
+					<label>Nome: </label>
+					<input type="text" class="form-control" th:field="*{firstName}">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="form-group col-md-6">
+				<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('lastName')}">
+					<label th:erros="*{lastName}" class="validation-message"></label>
+				</div>
+					<label>Sobrenome: </label>
+					<input type="text" class="form-control" th:field="*{lastName}">
+			</div>
+		</div>
+			
+		
+		<div class="row">
+			<div class="form-group col-md-6">
+				<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}">
+					<label th:erros="*{password}" class="validation-message"></label>
+				</div>
+				<label>Senha: </label>
+				<input type="password" class="form-control" th:field="*{password}">
+			</div>
+		</div>
+		<button type="submit" class="btn btn-danger">Cadastrar</button>
+	</form>
+</div>
+
+
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

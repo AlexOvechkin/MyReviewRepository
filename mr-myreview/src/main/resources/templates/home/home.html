@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+
+
+<meta charset="UTF-8">
+<title>MyReview</title>
+<!--Simple Rating-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/simplerating.css}" media="screen" />
+<!--Circle Buttons-->
+<link rel="stylesheet" type="text/css" href="css/circlebuttons.css" media="screen" />
+<!--Bootstrap CSS-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!--RateYo-->
+<link rel="stylesheet" href="css/jquery.rateyo.css" media="screen" />
+<!--Font Awesome CSS-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+<body>
+
+
+<!--NavBar -->
+	<nav class="navbar navbar-dark" style="background-color: #a31717;">
+		<a class="navbar-brand" style="color: white;">MyReview</a>
+		
+
+		
+		<form class="form-inline">
+			<input class="form-control mr-sm-2" type="search"
+				placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+		</form>
+	</nav>
+	
+	
+	
+	<div class="row">
+	
+	<!--SideOptions -->
+		<div class="col-sm-2">
+			<div class="row">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-6">
+					<br /> <br /> <br />
+					<form>
+					  <div class="form-group">
+					    <label for="exampleFormControlSelect1">Example select</label>
+					    <select class="form-control" id="exampleFormControlSelect1" onchange="location = this.value;">
+					      <option value="/brasil">Brasil</option>
+					      <option value="/jamaica">amaica</option>
+					    </select>
+					  </div>
+					  <button >Find</button>
+					  </form>
+				<a href="/brasil">Brasil</a>
+				<a href="/jamaica">Jamaica</a>
+				</div>
+
+			</div>
+			<div class="col-sm-3"></div>
+			<div class="row">
+				<div class="col-sm-3"></div>
+
+				<div class="col-sm-3"></div>
+			</div>
+			<div class="row"></div>
+		</div>
+		
+		
+	<!--Content -->
+		<div class="col-sm-9">
+			<form method="GET">
+				<div class="list-group" th:each="establishment : ${establishments}">
+					<a href="#" class="list-group-item list-group-item-action">
+						<div class="d-flex w-100 justify-content-between">
+							<h5 class="mb-1" th:text="${establishment.name}"></h5>
+							<small></small>
+						</div>
+						<p class="mb-1" th:text="${establishment.description}"></p> 
+						<small>
+							<p class="mb-1" th:text="${establishment.stars}" style="color: orange;"></p> 
+						</small>
+					</a>
+				</div>
+			</form>
+		</div>
+	
+		
+	</div>
+	
+
+
+	<!--RateYo JS -->
+	<script src="js/jquery.rateyo.js"></script>
+	<!--jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!--Bootstrap JS -->
+	<script src="/js/bootstrap.min.js"></script>
+	
+	<script src="/js/rating.js"></script>
+
+
+</body>
+</html>

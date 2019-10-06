@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login - MyReview</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="container">
+<h3>Login</h3>
+	<form action="/login" method="post" class="form-signin">
+		<div class="form-group">
+			<div class="col-md-9">
+				<input type="text" name="email" class="form-control" placeholder="E-mail">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-9">
+				<input type="password" name="password" class="form-control" placeholder="Senha">
+			</div>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-danger">Login</button>
+		</div>
+		<div class="form-group">
+			<div class="col-md-9">
+				<div class="alert alert-danger" role="alert" th:if="${param.error}">Não foi possível fazer o login!</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<span>Não possui conta? <a href="/registration">Cadastre-se</a></span>
+		</div>
+	</form>
+</div>
+
+
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
